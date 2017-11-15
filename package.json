@@ -1,25 +1,66 @@
 {
-  "name": "reactable",
-  "version": "0.14.1",
-  "description": "Fast, flexible, simple data tables in React",
-  "main": "./lib/reactable.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/glittershark/reactable.git"
+  "_args": [
+    [
+      {
+        "raw": "reactable@github:vapourapps/reactable",
+        "scope": null,
+        "escapedName": "reactable",
+        "name": "reactable",
+        "rawSpec": "github:vapourapps/reactable",
+        "spec": "github:vapourapps/reactable",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:vapourapps/reactable.git",
+          "sshUrl": "git+ssh://git@github.com/vapourapps/reactable.git",
+          "httpsUrl": "git+https://github.com/vapourapps/reactable.git",
+          "gitUrl": "git://github.com/vapourapps/reactable.git",
+          "shortcut": "github:vapourapps/reactable",
+          "directUrl": "https://raw.githubusercontent.com/vapourapps/reactable/master/package.json"
+        }
+      },
+      "/opt/va_master/va_dashboard"
+    ]
+  ],
+  "_from": "vapourapps/reactable",
+  "_id": "reactable@0.14.1",
+  "_inCache": true,
+  "_location": "/reactable",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "reactable@github:vapourapps/reactable",
+    "scope": null,
+    "escapedName": "reactable",
+    "name": "reactable",
+    "rawSpec": "github:vapourapps/reactable",
+    "spec": "github:vapourapps/reactable",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:vapourapps/reactable.git",
+      "sshUrl": "git+ssh://git@github.com/vapourapps/reactable.git",
+      "httpsUrl": "git+https://github.com/vapourapps/reactable.git",
+      "gitUrl": "git://github.com/vapourapps/reactable.git",
+      "shortcut": "github:vapourapps/reactable",
+      "directUrl": "https://raw.githubusercontent.com/vapourapps/reactable/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git://github.com/vapourapps/reactable.git#4cb57c1823293c39c16ddd864357412280b93876",
+  "_shasum": "1d3bb3c8924640e3d6cb28dd6c976dc6451dd929",
+  "_shrinkwrap": null,
+  "_spec": "reactable@github:vapourapps/reactable",
+  "_where": "/opt/va_master/va_dashboard",
+  "author": {
+    "name": "Griffin Smith"
   },
   "bugs": {
     "url": "https://github.com/glittershark/reactable/issues"
   },
-  "author": "Griffin Smith",
-  "license": "MIT",
-  "homepage": "https://github.com/glittershark/reactable",
-  "scripts": {
-    "test": "./node_modules/grunt-cli/bin/grunt ci",
-    "build": "./node_modules/grunt-cli/bin/grunt build"
-  },
-  "peerDependencies": {
-    "react": "* || ^0.14.0"
-  },
+  "dependencies": {},
+  "description": "Fast, flexible, simple data tables in React",
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-babel": "^5.0.1",
@@ -40,10 +81,30 @@
     "mocha": "^1.18.2",
     "react": "^0.14.0"
   },
+  "gitHead": "4cb57c1823293c39c16ddd864357412280b93876",
+  "homepage": "https://github.com/glittershark/reactable",
   "keywords": [
     "react-component",
     "react",
     "table",
     "data-tables"
-  ]
+  ],
+  "license": "MIT",
+  "main": "./lib/reactable.js",
+  "name": "reactable",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": "* || ^0.14.0"
+  },
+  "readme": "# Reactable\n\n[![Build Status](https://travis-ci.org/glittershark/reactable.svg?branch=master)](https://travis-ci.org/glittershark/reactable)\n[![Code Climate](https://codeclimate.com/github/glittershark/reactable/badges/gpa.svg)](https://codeclimate.com/github/glittershark/reactable)\n\nFast, flexible, and simple data tables in React.\n\nReactable allows you to display tabular data client-side, and provides sorting,\nfiltering, and pagination over that data. It uses the power of [React.js][react]\nto do all this very, very quickly, and provides an API that makes simple things\neasy, while trying to get out of your way as much as possible if you want to do\nsomething complicated or unconventional.\n\n[react]: http://facebook.github.io/react/\n\nThis project is currently alpha-stage, which means the API may or may not be\nunstable and there might be hidden bugs lurking around any corner. I'll try to\ntag any releases with breaking changes, however, and the more people who use\nthis the faster we can get to 1.0!\n\n**Note:** As of version 0.12.0 Reactable will only continue to support React\n0.14 and higher.\n\n## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n  - [Further Customization](#further-customization)\n  - [Even More Customization](#even-more-customization)\n  - [Additional node types](#additional-node-types)\n  - [Customizing Columns](#customizing-columns)\n  - [Preventing escaping of HTML](#preventing-escaping-of-html)\n  - [Pagination](#pagination)\n  - [Sorting](#sorting)\n  - [Filtering](#filtering)\n  - [Empty Data Sets](#empty-data-sets)\n  - [Events](#events)\n\n## Installation\n\n### Using Bower\n\n```sh\nbower install [--save] reactable\n```\n\n### Using NPM\n\n```sh\nnpm install [--save] reactable\n```\n\nOr, you can just download the raw file\n[here][build-file].\n\nThat file can be used either as an AMD module, as a CommonJS module in Node, or,\nif neither are supported, will register the Reactable object as a property of\nthe `window` object.\n\nReactable also exposes a set of CommonJS modules for piece-by-piece use with\nNode, Webpack, Browserify, etc. These modules are located in the [`lib` folder\nat the root of this repositiory][lib-folder].\n\nKeep in mind that Reactable depends on the latest version of React (0.14), which\ncan be downloaded [here][download]\n\n[build-file]: https://github.com/glittershark/reactable/raw/master/build/reactable.js\n[download]: http://facebook.github.io/react/downloads.html\n[lib-folder]: https://github.com/glittershark/reactable/tree/master/lib\n\n## Usage\n\nThe simplest example:\n\n```jsx\nvar Table = Reactable.Table;\nReactDOM.render(\n    <Table className=\"table\" data={[\n        { Name: 'Griffin Smith', Age: 18 },\n        { Age: 23,  Name: 'Lee Salminen' },\n        { Age: 28, Position: 'Developer' },\n    ]} />,\n    document.getElementById('table')\n);\n```\n\nWhile pretty basic, this example demonstrates a couple things:\n\n- Columns in the data array can be in any order, and you can omit any you like\n- Regular React DOM attributes such as className will pass-through to the\n  rendered `<table>`\n- Data values can be any type with a `toString()` method\n\n### Further Customization\n\nYou can also manually build up your rows using `Reactable.Tr` nested in a table,\nalso using the `data` prop, but this time containing only one javascript object.\nThis approach can be freely combined with the `data` property on the `<Table>`,\nand is useful if you want to specify per-row attributes such as classes, like so:\n\n```jsx\nvar Table = Reactable.Table,\n    Tr = Reactable.Tr;\n\nReactDOM.render(\n    <Table className=\"table\" data={[\n        { name: 'Row one', content: 'These are regular data rows' },\n        { name: 'Row two', content: 'They work like above' },\n    ]} >\n        <Tr className=\"special-row\"\n            data={{ name: 'Other Row' , content: 'This is a different row' }} />\n    </Table>,\n    document.getElementById('table')\n);\n```\n\n### Even More Customization\n\nIf you want to customize the rendering of individual columns, you can go a level\ndeeper by embedding a `Reactable.Td` inside your `Reactable.Tr`. These have the\nrequired `column` property, and an optional `value` property if you want to\ncustomize the data that's used for sorting and filtering - if the latter isn't\nspecified, the data used will default to the `Td`'s children.\n\nExample:\n\n```jsx\nvar Table = Reactable.Table,\n    Tr = Reactable.Tr,\n    Td = Reactable.Td;\n\nReactDOM.render(\n    <Table className=\"table\" id=\"table\">\n        <Tr>\n            <Td column=\"Name\" data=\"Griffin Smith\">\n                <b>Griffin Smith</b>\n            </Td>\n            <Td column=\"Age\">18</Td>\n        </Tr>\n        <Tr>\n            <Td column=\"Name\">Lee Salminen</Td>\n            <Td column=\"Age\">23</Td>\n        </Tr>\n        <Tr>\n            <Td column=\"Position\">Developer</Td>\n            <Td column=\"Age\">28</Td>\n        </Tr>\n    </Table>,\n    document.getElementById('table')\n);\n```\n\n### Customizing Columns\n\nTo override inferring the column list from the attributes of the passed `data`\nobjects, you can either:\n\n- Pass a `columns` array property to the `<Table>` component, which can be\n  either:\n  - An array of strings, in which case only the given properties will be included\n    as columns in the rendered table.\n  - An array of objects, each of which must have a `key` and `label` property.\n    The `key` property is the attribute of the row object from which to retrieve\n    value, and the `label` is the text to render in the column header row.\n- Define a `<Thead>` component as the **first child** of the `<Table>`, with\n  `<Th>` components as children (note the exclusion of a `<Tr>` here),\n  each of which should have a \"column\" property. The children of these `<Th>`\n  components (either strings or React components themselves) will be used to\n  render the table headers. For example:\n\n```jsx\nvar Table = Reactable.Table,\n    Thead = Reactable.Thead,\n    Th = Reactable.Th,\n    Tr = Reactable.Tr,\n    Td = Reactable.Td;\n\nReactDOM.render(\n    <Table className=\"table\" id=\"table\">\n        <Thead>\n          <Th column=\"name\">\n            <strong className=\"name-header\">First Name, Last Name</strong>\n          </Th>\n          <Th column=\"age\">\n            <em className=\"age-header\">Age, years</em>\n          </Th>\n        </Thead>\n        <Tr>\n            <Td column=\"name\" data=\"Griffin Smith\">\n                <b>Griffin Smith</b>\n            </Td>\n            <Td column=\"age\">18</Td>\n        </Tr>\n        <Tr>\n            <Td column=\"name\">Lee Salminen</Td>\n            <Td column=\"age\">23</Td>\n        </Tr>\n        <Tr>\n            <Td column=\"position\">Developer</Td>\n            <Td column=\"age\">28</Td>\n        </Tr>\n    </Table>,\n    document.getElementById('table')\n);\n```\n\nIn this example, the `position` column will **not** be rendered.\n\n### Additional node types\n\nReactable also supports specifying a `<tfoot>` for your table, via the\n`Reactable.Tfoot` class. Per the HTML spec, there can only be one `<Tfoot>` per\ntable and its only children should be React.DOM `<tr>` elements (**not**\n`<Reactable.Tr>` elements).\n\n### Preventing escaping of HTML\n\nIf you don't want to go all the way down the JSX rabbit hole to render\nindividual cells as HTML, and you know your source data is safe, you can wrap\nstrings in `Reactable.unsafe` to prevent their content from being escaped, like\nso:\n\n```jsx\nvar Table = Reactable.Table,\n    unsafe = Reactable.unsafe;\n\nReactDOM.render(\n    <Table className=\"table\" id=\"table\" data={[\n        {\n            'Name': unsafe('<b>Griffin Smith</b>'),\n            'Github': unsafe('<a href=\"https://github.com/glittershark\"><img src=\"https://d2k1ftgv7pobq7.cloudfront.net/images/services/8cab38550d1f23032facde191031d024/github.png\"></a>')\n        },\n        {\n            'Name': unsafe('<b>Ian Zhang</b>'),\n            'Github': unsafe('<a href=\"https://github.com/lofiinterstate\"><img src=\"https://d2k1ftgv7pobq7.cloudfront.net/images/services/8cab38550d1f23032facde191031d024/github.png\"></a>')\n        },\n    ]}/>,\n    document.getElementById('table')\n);\n```\n\nYou can also pass in `unsafe` strings as column labels or in a `<Reactable.Th>`\n\n### Pagination\n\nYou can also use pagination, by just specifying an `itemsPerPage` argument to\nthe `<Table>` component. Include an optional `pageButtonLimit` argument to\ncustomize the number of page buttons in the pagination, which defaults to 10.\nFor example:\n\n```jsx\n<Table className=\"table\" data={[\n    { Name: 'Griffin Smith', Age: '18' },\n    { Age: '23',  Name: 'Lee Salminen' },\n    { Age: '28', Position: 'Developer' },\n    { Name: 'Griffin Smith', Age: '18' },\n    { Age: '30',  Name: 'Test Person' },\n    { Name: 'Another Test', Age: '26', Position: 'Developer' },\n    { Name: 'Third Test', Age: '19', Position: 'Salesperson' },\n    { Age: '23',  Name: 'End of this Page', Position: 'CEO' },\n]} itemsPerPage={4} pageButtonLimit={5} />\n```\n\nYou can also change the default text on the buttons by including the\n`previousPageLabel` and `nextPageLabel` props.\n\n### Sorting\n\nTo enable sorting on all columns, just specify `sortable={true}` on the\n`<Table>` component. For further customization, ie disabling sort or using a\ncustom sort function on a per-column basis, you can pass an array to `sortable`,\nwhich contains either string column names or column objects.\n\nWe've pre-built some sort functions for you.\n\n- `CaseInsensitive` will sort strings alphabetically regardless of\n  capitalization (e.g. Joe Smith === joe smith)\n- `Date` will sort dates using JavaScript's native Date parser (e.g. 4/20/2014\n  12:05 PM)\n- `Currency` will sort USD format (e.g. $1,000.00)\n- `Numeric` will parse integer-like strings as integers (e.g. \"1\")\n- `NumericInteger` will parse integer strings (use `Numeric` if you might have floats)\n\nTo specify a custom sort function, use the following structure for the column\nobject:\n\n```jsx\n\n{column: 'Column Name', sortFunction: function(a, b){\n    return a > b ? 1 : -1;\n}}\n```\n\nYou can also specify a default sort by passing in either a column name by\nitself, or an object with a column and a `direction` paramenter of either `asc`\nor `desc`.  If no direction is specified, the default sort will be ascending.\nExample:\n\n```jsx\n\n{column: 'Column Name', direction: 'asc' }\n```\n\nCombined example:\n\n```jsx\n<Table className=\"table\" id=\"table\" data={[\n    { Name: 'Lee Salminen', Age: '23', Position: 'Programmer'},\n    { Name: 'Griffin Smith', Age: '18', Position: 'Engineer'},\n    { Name: 'Ian Zhang', Age: '28', Position: 'Developer'}\n]}\nsortable={[\n    {\n        column: 'Name',\n        sortFunction: function(a, b){\n            // Sort by last name\n            var nameA = a.split(' ');\n            var nameB = b.split(' ');\n\n            return nameA[1].localeCompare(nameB[1]);\n        }\n    },\n    'Age',\n    'Position'\n]}\ndefaultSort={{column: 'Age', direction: 'desc'}}/>\n```\n\nIn case you are constructing your table without the data attribute, and the\ncells contain some additional HTML elements, you can use the value property\non the Td element to define the value to sort for.\n\nIn the following example we define two TDs, where the first contains some\nadditional markup. We tell the Td to take \"Griffin Smith\" as value for data\nhandling (filter or sort).\n\n```jsx\nvar Table = Reactable.Table,\n    Tr = Reactable.Tr,\n    Td = Reactable.Td;\n\nReactDOM.render(\n    <Table className=\"table\" id=\"table\" sortable={true}>\n        <Tr>\n            <Td column=\"Name\" value=\"Griffin Smith\">\n                <div>\n                   <span>Some Text or Icon</span>\n                   <b>Griffin Smith</b>\n                </div>\n            </Td>\n            <Td column=\"Age\">18</Td>\n        </Tr>\n    </Table>,\n    document.getElementById('table')\n);\n```\n\nThere is also an boolean `defaultSortDescending` option to default the sorting\nof a column to descending when clicked:\n\n```jsx\n\n<Table className=\"table\" id=\"table\" data={[\n    { Name: 'Lee Salminen', Age: '23', Position: 'Programmer'},\n    { Name: 'Griffin Smith', Age: '18', Position: 'Engineer'},\n    { Name: 'Ian Zhang', Age: '28', Position: 'Developer'}\n]}\nsortable={[\n    'Age',\n    'Position'\n]}\ndefaultSort={{column: 'Age', direction: 'desc'}}\ndefaultSortDescending\n```\n\n### Filtering\n\nYou can do simple case-insensitive filtering by specifying a filterable property\non the table.  This property should contain a list of columns which the filter\nis performed on.  If the filterable property is provided, then an input box with\nclass reactable-filter-input will be prepended to the thead of the table.\n\nExample:\n\n```jsx\n<Table className=\"table\" id=\"table\" data={[\n    {'State': 'New York', 'Description': 'this is some text', 'Tag': 'new'},\n    {'State': 'New Mexico', 'Description': 'lorem ipsum', 'Tag': 'old'},\n    {'State': 'Colorado',\n     'Description': 'new description that shouldn\\'t match filter',\n     'Tag': 'old'},\n    {'State': 'Alaska', 'Description': 'bacon', 'Tag': 'renewed'},\n]} filterable={['State', 'Tag']} />\n```\n\nThere is also a `filterBy()` function on the component itself which takes a\nsingle string and applies that as the filtered value. It can be used like so:\n\n```jsx\nvar table = ReactDOM.render(\n  <Table className=\"table\" id=\"table\" data={[\n      {'State': 'New York', 'Description': 'this is some text', 'Tag': 'new'},\n      {'State': 'New Mexico', 'Description': 'lorem ipsum', 'Tag': 'old'},\n      {'State': 'Colorado',\n       'Description': 'new description that shouldn\\'t match filter',\n       'Tag': 'old'},\n      {'State': 'Alaska', 'Description': 'bacon', 'Tag': 'renewed'},\n  ]} filterable={['State', 'Tag']} />,\n  document.getElementById('table')\n);\n\ntable.filterBy('new');\n```\n\nYou can also pass in a `filterBy` prop to control the filtering outside of the\n`Table` component:\n\n```jsx\nvar table = ReactDOM.render(\n  <Table className=\"table\" id=\"table\" data={[\n      {'State': 'New York', 'Description': 'this is some text', 'Tag': 'new'},\n      {'State': 'New Mexico', 'Description': 'lorem ipsum', 'Tag': 'old'},\n      {'State': 'Colorado',\n       'Description': 'new description that shouldn\\'t match filter',\n       'Tag': 'old'},\n      {'State': 'Alaska', 'Description': 'bacon', 'Tag': 'renewed'},\n  ]} filterable={['State', 'Tag']}\n  filterBy=\"new\" />,\n  document.getElementById('table')\n);\n```\n\nIf you are using your own input field to control the `filterBy` prop, you can\nhide the build-in filter input field with the `hideFilterInput` prop:\n\n```jsx\nvar table = ReactDOM.render(\n  <Table className=\"table\" id=\"table\" data={[\n      {'State': 'New York', 'Description': 'this is some text', 'Tag': 'new'},\n      {'State': 'New Mexico', 'Description': 'lorem ipsum', 'Tag': 'old'},\n      {'State': 'Colorado',\n       'Description': 'new description that shouldn\\'t match filter',\n       'Tag': 'old'},\n      {'State': 'Alaska', 'Description': 'bacon', 'Tag': 'renewed'},\n  ]} filterable={['State', 'Tag']}\n  filterBy=\"new\"\n  hideFilterInput />,\n  document.getElementById('table')\n);\n```\n\nThese can be useful if you want to roll your own filtering input field\noutside of Reactable.\n\nYou can also provide your own custom filtering functions:\n\n```jsx\n<Table className=\"table\" id=\"table\" data={[\n    {'State': 'New York', 'Description': 'this is some text', 'Tag': 'new'},\n    {'State': 'New Mexico', 'Description': 'lorem ipsum', 'Tag': 'old'},\n    {'State': 'Colorado',\n     'Description': 'new description that shouldn\\'t match filter',\n     'Tag': 'old'},\n    {'State': 'Alaska', 'Description': 'bacon', 'Tag': 'renewed'},\n]}\nfilterable={[\n    {\n        column: 'State',\n        filterFunction: function(contents, filter) {\n            // case-sensitive filtering\n            return (contents.indexOf(filter) > -1);\n        }\n    },\n    'Tag'\n]} />\n```\n\nYour filter function must return a boolean. Refraining from specifying a custom\nfilter function will default to case-insensitive filtering.\n\n### Empty Data Sets\n\nIf the table is initialized without any `<Tr>`s or with an empty array for\n`data`, you can display text in the body of the table by passing a string\nfor the optional `noDataText` prop:\n\n```jsx\nvar table = ReactDOM.render(\n  <Table\n    className=\"table\"\n    id=\"table\" data={[]}\n    noDataText=\"No matching records found.\" />,\n  document.getElementById('table')\n);\n```\n\n### Events\n\nYou can pass functions to the following props of `<Reactable.Table>` to provide\nevent handlers.\n\n#### onSort\n\nCalled when the sorting in the table changes.\n\nThis handler will be passed an object that contains the column name that is\nbeing sorted by, and the direction it is being sorted:\n\n```js\n{\n  column: 'Name',\n  direction: -1\n}\n```\n\n#### onFilter\n\nCalled every time the filtering changes.\n\nThis handler will be passed a string containing the text that's being used for\nfiltering.\n\n#### onPageChange\n\nCalled every time the page changes.\n\nThis handler will be passed a number representing the current page, zero based.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glittershark/reactable.git"
+  },
+  "scripts": {
+    "build": "./node_modules/grunt-cli/bin/grunt build",
+    "test": "./node_modules/grunt-cli/bin/grunt ci"
+  },
+  "version": "0.14.1"
 }

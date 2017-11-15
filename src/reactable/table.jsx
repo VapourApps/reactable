@@ -497,6 +497,9 @@ export class Table extends React.Component {
                        sort={this.state.currentSort}
                        sortableColumns={this._sortable}
                        onSort={this.onSort.bind(this)}
+                       btnName={this.props.btnName}
+                       btnClick={this.props.btnClick}
+                       title={this.props.title}
                        key="thead"/>
             )
         }

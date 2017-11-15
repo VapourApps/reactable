@@ -23,14 +23,31 @@ export class Filterer extends React.Component {
         if (typeof this.props.colSpan === 'undefined') {
             throw new TypeError('Must pass a colSpan argument to Filterer');
         }
-
+        let button = null, title = null;
+        if(this.props.btnName){
+            button = (
+                <button onClick={this.props.btnClick} className="btn btn-default tbl-btn">
+                    <span className="glyphicon glyphicon-plus"></span>
+                    {this.props.btnName}
+                </button>
+            );
+        }
+        if(this.props.title){
+            title = (
+                <td colSpan={1}>
+                    <h4 className="tbl-title">{this.props.title}</h4>
+                </td>
+            );
+        }
         return (
             <tr className="reactable-filterer">
+                {title}
                 <td colSpan={this.props.colSpan}>
                     <FiltererInput onFilter={this.props.onFilter}
                         value={this.props.value}
                         placeholder={this.props.placeholder}
                         className={this.props.className ? 'reactable-filter-input ' + this.props.className : 'reactable-filter-input'} />
+                    {button}
                 </td>
             </tr>
         );

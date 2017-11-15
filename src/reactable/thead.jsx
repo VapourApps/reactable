@@ -102,17 +102,28 @@ export class Thead extends React.Component {
 
         // Manually transfer props
         var props = filterPropsFrom(this.props);
+        let filterer = null;
+        let colNum = this.props.columns.length;
+        if(this.props.title)
+            colNum -= 1;
+        if(this.props.filtering === true){
+            filterer = (
+                <Filterer
+                    colSpan={colNum}
+                    onFilter={this.props.onFilter}
+                    placeholder={this.props.filterPlaceholder}
+                    value={this.props.currentFilter}
+                    className={this.props.filterClassName}
+                    btnName={this.props.btnName}
+                    btnClick={this.props.btnClick}
+                    title={this.props.title}
+                />
+            );
+        }
 
         return (
             <thead {...props}>
-                {this.props.filtering === true ?
-                    <Filterer
-                        colSpan={this.props.columns.length}
-                        onFilter={this.props.onFilter}
-                        placeholder={this.props.filterPlaceholder}
-                        value={this.props.currentFilter}
-                        className={this.props.filterClassName}
-                    /> : null}
+                {filterer}
                 <tr className="reactable-column-header">{Ths}</tr>
             </thead>
         );

@@ -287,17 +287,39 @@ window.ReactDOM["default"] = window.ReactDOM;
                 if (typeof this.props.colSpan === 'undefined') {
                     throw new TypeError('Must pass a colSpan argument to Filterer');
                 }
-
+                var button = null,
+                    title = null;
+                if (this.props.btnName) {
+                    button = _react['default'].createElement(
+                        'button',
+                        { onClick: this.props.btnClick, className: 'btn btn-default tbl-btn' },
+                        _react['default'].createElement('span', { className: 'glyphicon glyphicon-plus' }),
+                        this.props.btnName
+                    );
+                }
+                if (this.props.title) {
+                    title = _react['default'].createElement(
+                        'td',
+                        { colSpan: 1 },
+                        _react['default'].createElement(
+                            'h4',
+                            { className: 'tbl-title' },
+                            this.props.title
+                        )
+                    );
+                }
                 return _react['default'].createElement(
                     'tr',
                     { className: 'reactable-filterer' },
+                    title,
                     _react['default'].createElement(
                         'td',
                         { colSpan: this.props.colSpan },
                         _react['default'].createElement(FiltererInput, { onFilter: this.props.onFilter,
                             value: this.props.value,
                             placeholder: this.props.placeholder,
-                            className: this.props.className ? 'reactable-filter-input ' + this.props.className : 'reactable-filter-input' })
+                            className: this.props.className ? 'reactable-filter-input ' + this.props.className : 'reactable-filter-input' }),
+                        button
                     )
                 );
             }
@@ -733,17 +755,26 @@ window.ReactDOM["default"] = window.ReactDOM;
 
                 // Manually transfer props
                 var props = (0, _libFilter_props_from.filterPropsFrom)(this.props);
+                var filterer = null;
+                var colNum = this.props.columns.length;
+                if (this.props.title) colNum -= 1;
+                if (this.props.filtering === true) {
+                    filterer = _react['default'].createElement(_filterer.Filterer, {
+                        colSpan: colNum,
+                        onFilter: this.props.onFilter,
+                        placeholder: this.props.filterPlaceholder,
+                        value: this.props.currentFilter,
+                        className: this.props.filterClassName,
+                        btnName: this.props.btnName,
+                        btnClick: this.props.btnClick,
+                        title: this.props.title
+                    });
+                }
 
                 return _react['default'].createElement(
                     'thead',
                     props,
-                    this.props.filtering === true ? _react['default'].createElement(_filterer.Filterer, {
-                        colSpan: this.props.columns.length,
-                        onFilter: this.props.onFilter,
-                        placeholder: this.props.filterPlaceholder,
-                        value: this.props.currentFilter,
-                        className: this.props.filterClassName
-                    }) : null,
+                    filterer,
                     _react['default'].createElement(
                         'tr',
                         { className: 'reactable-column-header' },
@@ -1526,6 +1557,9 @@ window.ReactDOM["default"] = window.ReactDOM;
                         sort: this.state.currentSort,
                         sortableColumns: this._sortable,
                         onSort: this.onSort.bind(this),
+                        btnName: this.props.btnName,
+                        btnClick: this.props.btnClick,
+                        title: this.props.title,
                         key: 'thead' });
                 }
                 return _react['default'].createElement(
