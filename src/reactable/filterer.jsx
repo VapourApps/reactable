@@ -9,6 +9,7 @@ export class FiltererInput extends React.Component {
     render() {
         return (
             <input type="text"
+                id="reactableFilter"
                 className={this.props.className}
                 placeholder={this.props.placeholder}
                 value={this.props.value}

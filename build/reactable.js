@@ -258,6 +258,7 @@ window.ReactDOM["default"] = window.ReactDOM;
             key: 'render',
             value: function render() {
                 return _react['default'].createElement('input', { type: 'text',
+                    id: 'reactableFilter',
                     className: this.props.className,
                     placeholder: this.props.placeholder,
                     value: this.props.value,
