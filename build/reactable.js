@@ -44,7 +44,10 @@ window.ReactDOM["default"] = window.ReactDOM;
         pageButtonLimit: true,
         childNode: true,
         data: true,
-        children: true
+        children: true,
+        btnName: true,
+        btnClick: true,
+        title: true
     };
 
     function filterPropsFrom(baseProps) {

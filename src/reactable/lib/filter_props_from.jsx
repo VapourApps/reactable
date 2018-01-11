@@ -26,7 +26,10 @@ const internalProps = {
     pageButtonLimit: true,
     childNode: true,
     data: true,
-    children: true
+    children: true,
+    btnName: true,
+    btnClick: true,
+    title: true
 };
 
 export function filterPropsFrom(baseProps) {
