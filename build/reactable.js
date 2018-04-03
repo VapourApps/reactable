@@ -47,7 +47,9 @@ window.ReactDOM["default"] = window.ReactDOM;
         children: true,
         btnName: true,
         btnClick: true,
-        title: true
+        title: true,
+        link: true,
+        linkAction: true
     };
 
     function filterPropsFrom(baseProps) {
@@ -302,13 +304,19 @@ window.ReactDOM["default"] = window.ReactDOM;
                     );
                 }
                 if (this.props.title) {
+                    var arr = [this.props.title];
+                    if (this.props.link) arr.push(_react['default'].createElement(
+                        'span',
+                        { className: 'link', onClick: this.props.linkAction },
+                        this.props.link
+                    ));
                     title = _react['default'].createElement(
                         'td',
                         { colSpan: 1 },
                         _react['default'].createElement(
                             'h4',
                             { className: 'tbl-title' },
-                            this.props.title
+                            arr
                         )
                     );
                 }
@@ -771,7 +779,9 @@ window.ReactDOM["default"] = window.ReactDOM;
                         className: this.props.filterClassName,
                         btnName: this.props.btnName,
                         btnClick: this.props.btnClick,
-                        title: this.props.title
+                        title: this.props.title,
+                        link: this.props.link,
+                        linkAction: this.props.linkAction
                     });
                 }
 
@@ -1564,6 +1574,8 @@ window.ReactDOM["default"] = window.ReactDOM;
                         btnName: this.props.btnName,
                         btnClick: this.props.btnClick,
                         title: this.props.title,
+                        link: this.props.link,
+                        linkAction: this.props.linkAction,
                         key: 'thead' });
                 }
                 return _react['default'].createElement(

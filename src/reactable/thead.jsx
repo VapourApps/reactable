@@ -117,6 +117,8 @@ export class Thead extends React.Component {
                     btnName={this.props.btnName}
                     btnClick={this.props.btnClick}
                     title={this.props.title}
+                    link={this.props.link}
+                    linkAction={this.props.linkAction}
                 />
             );
         }

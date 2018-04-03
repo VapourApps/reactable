@@ -29,7 +29,9 @@ const internalProps = {
     children: true,
     btnName: true,
     btnClick: true,
-    title: true
+    title: true,
+    link: true,
+    linkAction: true
 };
 
 export function filterPropsFrom(baseProps) {

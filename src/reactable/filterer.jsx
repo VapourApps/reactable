@@ -34,9 +34,12 @@ export class Filterer extends React.Component {
             );
         }
         if(this.props.title){
+            var arr = [this.props.title];
+            if(this.props.link)
+                arr.push(<span className='link' onClick={this.props.linkAction}>{this.props.link}</span>);
             title = (
                 <td colSpan={1}>
-                    <h4 className="tbl-title">{this.props.title}</h4>
+                    <h4 className="tbl-title">{arr}</h4>
                 </td>
             );
         }
