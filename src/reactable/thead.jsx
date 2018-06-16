@@ -114,8 +114,7 @@ export class Thead extends React.Component {
                     placeholder={this.props.filterPlaceholder}
                     value={this.props.currentFilter}
                     className={this.props.filterClassName}
-                    btnName={this.props.btnName}
-                    btnClick={this.props.btnClick}
+                    buttons={this.props.buttons}
                     title={this.props.title}
                     link={this.props.link}
                     linkAction={this.props.linkAction}

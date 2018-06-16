@@ -27,8 +27,7 @@ const internalProps = {
     childNode: true,
     data: true,
     children: true,
-    btnName: true,
-    btnClick: true,
+    buttons: true,
     title: true,
     link: true,
     linkAction: true

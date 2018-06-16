@@ -17,21 +17,21 @@ export class FiltererInput extends React.Component {
                 onChange={this.onChange.bind(this)} />
         );
     }
-};
+}
 
 export class Filterer extends React.Component {
     render() {
         if (typeof this.props.colSpan === 'undefined') {
             throw new TypeError('Must pass a colSpan argument to Filterer');
         }
-        let button = null, title = null;
-        if(this.props.btnName){
-            button = (
-                <button onClick={this.props.btnClick} className="btn btn-default tbl-btn">
-                    <span className="glyphicon glyphicon-plus"></span>
-                    {this.props.btnName}
+        let buttons = null, title = null;
+        if(this.props.buttons){
+            buttons = this.props.buttons.map((btn, i) => {
+                return <button key={i} onClick={btn.onClick} className="btn btn-default tbl-btn">
+                    {btn.icon && <span className={btn.icon}></span>}
+                    {btn.name}
                 </button>
-            );
+            });
         }
         if(this.props.title){
             var arr = [this.props.title];
@@ -51,10 +51,10 @@ export class Filterer extends React.Component {
                         value={this.props.value}
                         placeholder={this.props.placeholder}
                         className={this.props.className ? 'reactable-filter-input ' + this.props.className : 'reactable-filter-input'} />
-                    {button}
+                    {buttons}
                 </td>
             </tr>
         );
     }
-};
+}
 

@@ -45,8 +45,7 @@ window.ReactDOM["default"] = window.ReactDOM;
         childNode: true,
         data: true,
         children: true,
-        btnName: true,
-        btnClick: true,
+        buttons: true,
         title: true,
         link: true,
         linkAction: true
@@ -276,7 +275,6 @@ window.ReactDOM["default"] = window.ReactDOM;
     })(_react['default'].Component);
 
     exports.FiltererInput = FiltererInput;
-    ;
 
     var Filterer = (function (_React$Component2) {
         _inherits(Filterer, _React$Component2);
@@ -293,15 +291,17 @@ window.ReactDOM["default"] = window.ReactDOM;
                 if (typeof this.props.colSpan === 'undefined') {
                     throw new TypeError('Must pass a colSpan argument to Filterer');
                 }
-                var button = null,
+                var buttons = null,
                     title = null;
-                if (this.props.btnName) {
-                    button = _react['default'].createElement(
-                        'button',
-                        { onClick: this.props.btnClick, className: 'btn btn-default tbl-btn' },
-                        _react['default'].createElement('span', { className: 'glyphicon glyphicon-plus' }),
-                        this.props.btnName
-                    );
+                if (this.props.buttons) {
+                    buttons = this.props.buttons.map(function (btn, i) {
+                        return _react['default'].createElement(
+                            'button',
+                            { key: i, onClick: btn.onClick, className: 'btn btn-default tbl-btn' },
+                            btn.icon && _react['default'].createElement('span', { className: btn.icon }),
+                            btn.name
+                        );
+                    });
                 }
                 if (this.props.title) {
                     var arr = [this.props.title];
@@ -331,7 +331,7 @@ window.ReactDOM["default"] = window.ReactDOM;
                             value: this.props.value,
                             placeholder: this.props.placeholder,
                             className: this.props.className ? 'reactable-filter-input ' + this.props.className : 'reactable-filter-input' }),
-                        button
+                        buttons
                     )
                 );
             }
@@ -341,7 +341,6 @@ window.ReactDOM["default"] = window.ReactDOM;
     })(_react['default'].Component);
 
     exports.Filterer = Filterer;
-    ;
 });
 
 (function (global, factory) {
@@ -777,8 +776,7 @@ window.ReactDOM["default"] = window.ReactDOM;
                         placeholder: this.props.filterPlaceholder,
                         value: this.props.currentFilter,
                         className: this.props.filterClassName,
-                        btnName: this.props.btnName,
-                        btnClick: this.props.btnClick,
+                        buttons: this.props.buttons,
                         title: this.props.title,
                         link: this.props.link,
                         linkAction: this.props.linkAction
@@ -1571,8 +1569,7 @@ window.ReactDOM["default"] = window.ReactDOM;
                         sort: this.state.currentSort,
                         sortableColumns: this._sortable,
                         onSort: this.onSort.bind(this),
-                        btnName: this.props.btnName,
-                        btnClick: this.props.btnClick,
+                        buttons: this.props.buttons,
                         title: this.props.title,
                         link: this.props.link,
                         linkAction: this.props.linkAction,
